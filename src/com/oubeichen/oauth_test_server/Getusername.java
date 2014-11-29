@@ -96,7 +96,6 @@ public class Getusername extends HttpServlet {
                     uid = ((JSONArray)jsonObject.getJSONArray("response"))
                             .getJSONObject(0).getString("uid");
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     out.println("Error when getting user details from VK server, you must check your accesstoken");
                 }
             } else if(type.equals("ok")){
@@ -110,11 +109,8 @@ public class Getusername extends HttpServlet {
                 String content = EntityUtils.toString(respon.getEntity());
                 try {
                     JSONObject jsonObject = new JSONObject(content);
-                    System.out.println(content);
                     uid = jsonObject.getString("uid");
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
                     out.println("Error when getting user details from OK server, you must check your accesstoken");
                 }
             } else {
